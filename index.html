@@ -1,0 +1,834 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AADITYA LAW GROUP - Professional Legal Services</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      background-color: #F9FAFB;
+      font-family: 'Roboto', 'Poppins', sans-serif;
+      color: #333333;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    nav .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      height: 80px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      background-color: #D3D3D3;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo-wrapper {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #C49E3F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+    }
+
+    .logo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-title-wrapper {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      white-space: normal;
+      max-width: calc(100% - 140px);
+    }
+
+    .nav-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.75rem;
+      color: #C49E3F;
+      margin: 0;
+      user-select: none;
+      word-break: break-word;
+    }
+
+    /* Decrease font size on mobile to fit header */
+    @media (max-width: 768px) {
+      .nav-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: #333333;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #C49E3F;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover, .nav-links a:focus {
+      color: #C49E3F;
+      outline: none;
+    }
+
+    .nav-links a:hover::after, .nav-links a:focus::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      color: #C49E3F;
+      font-size: 2rem;
+      padding-left: 1rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #D3D3D3;
+        position: absolute;
+        right: 0;
+        top: 80px;
+        width: 100%;
+        z-index: 40;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links a {
+        padding: 1rem 2rem;
+        color: #333333;
+      }
+
+      .nav-links a:hover, .nav-links a:focus {
+        background-color: #f9f7e7;
+        color: #C49E3F;
+      }
+
+      .nav-title-wrapper {
+        max-width: 100%;
+        order: 3;
+        padding-bottom: 0.5rem;
+        justify-content: center;
+      }
+
+      .logo-wrapper {
+        order: 1;
+      }
+
+      .hamburger {
+        order: 2;
+        margin-left: auto;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1.2s ease-in forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .advocate-card, .service-card {
+      transition: transform 0.3s cubic-bezier(.11,.77,.57,1), box-shadow 0.3s ease;
+      background-color: #E9EDF7;
+      color: #808080;
+      border-radius: 0.75rem;
+    }
+
+    .advocate-card:hover, .service-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(196, 158, 63, 0.2);
+    }
+
+    .service-card {
+      background-color: #F3F4F6;
+      color: #808080;
+    }
+
+    h1, h2, h3, h4, h5 {
+      color: #808080;
+    }
+
+    a {
+      color: #808080;
+      transition: color 0.3s ease;
+    }
+
+    a:hover, a:focus {
+      color: #C49E3F;
+      outline: none;
+    }
+
+    section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    #about p, #anurag-profile p {
+      text-align: justify;
+    }
+
+    .btn-primary {
+      background-color: #808080;
+      color: #F9FAFB;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+      background-color: #C49E3F;
+      color: #808080;
+      outline: none;
+    }
+
+    .team-photo-container {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(196, 158, 63, 0.3);
+    }
+
+    .team-photo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .advocate-card img {
+      object-fit: contain !important;
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-button:hover, .whatsapp-button:focus {
+      background-color: #1ebe57;
+      outline: none;
+    }
+
+    .whatsapp-button i {
+      color: white;
+      font-size: 30px;
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('open');
+    }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="shadow-lg fixed w-full top-0 z-50" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+      <div class="logo-wrapper">
+        <img src="https://www.dropbox.com/scl/fi/13mupqidukyahpbw9unim/IMG_0712.PNG?rlkey=6ka1tbktqzhxg77jl6unk0b2u&dl=1" alt="Aaditya Law Group Logo" />
+      </div>
+      <div class="nav-title-wrapper">
+        <h1 class="nav-title" tabindex="0">AADITYA LAW GROUP</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#home" tabindex="0">Home</a>
+        <a href="#about" tabindex="0">About</a>
+        <a href="#team" tabindex="0">Our Team</a>
+        <a href="#services" tabindex="0">Services</a>
+        <a href="#contact" tabindex="0">Contact</a>
+        <a href="#blog" tabindex="0">Blog</a>
+        <a href="#faq" tabindex="0">FAQ</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation" tabindex="0" role="button" onkeypress="if(event.key==='Enter'){toggleMenu();}">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-bg text-center pt-32 pb-20 fade-in" style="
+    background: linear-gradient(rgba(128, 128, 128, 0.85), rgba(128, 128, 128, 0.85)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0d0b5816-bf28-493f-9073-10d96469d80a.png');
+    background-size: cover;
+    background-position: center;
+    color: #F9FAFB;
+  ">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-6xl font-bold mb-6">Aaditya Law Group</h2>
+      <p class="text-2xl mb-8 text-yellow-300 font-semibold">Excellence in Legal Representation & Justice</p>
+      <div class="inline-block bg-white text-gray-800 p-8 rounded-lg max-w-2xl shadow-2xl" style="color: #808080;">
+        <h3 class="text-3xl font-semibold mb-4" style="color: #C49E3F;">Aditya Tiwari</h3>
+        <p class="mb-4 font-medium">Senior Advocate & Founding Partner</p>
+        <div class="space-y-3 contact-info text-left">
+          <p class="flex items-center">
+            <i class="fas fa-phone mr-3" style="color: #808080;"></i>
+            <a href="tel:+919415450478" style="color: #808080; text-decoration: none;">+91 9415450478</a>
+          </p>
+          <p class="flex items-center">
+            <i class="fas fa-envelope mr-3" style="color: #808080;"></i>
+            <a href="mailto:arya3270@gmail.com" style="color: #808080; text-decoration: none;">arya3270@gmail.com</a>
+          </p>
+          <p class="flex items-center">
+            <i class="fas fa-map-marker-alt mr-3" style="color: #808080;"></i>
+            Shop No.A1, Dayal Residency Chinhat Lucknow-226028
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-white fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-4" style="color: #808080;">About Our Firm</h2>
+      <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+      <p class="max-w-3xl mx-auto text-lg leading-relaxed" style="color: #808080; text-align: justify;">
+        AADITYA LAW GROUP is a dynamic and trusted law firm committed to delivering comprehensive legal solutions across India. With a strong presence in Lucknow High Court, Delhi High Court, Delhi Civil Courts, Chhattisgarh High Court, and the Supreme Court of India, we represent clients in diverse matters with utmost dedication and professionalism. Our firm specializes in handling civil, criminal, corporate, constitutional, and commercial cases, along with advisory and consultancy services for individuals, businesses, and institutions. We pride ourselves on our integrity, client-focused approach, and in-depth legal expertise, ensuring justice and the best possible outcomes for every client. With a mission to make quality legal services accessible and effective, AADITYA LAW GROUP stands as a symbol of trust, knowledge, and advocacy--"Where Law Meets Justice."
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Team Section -->
+  <section id="our-team" class="py-20 bg-white fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-4" style="color: #808080;">Our Team</h2>
+      <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+      <div class="team-photo-container">
+        <img src="https://www.dropbox.com/scl/fi/nb0aceoxcc601ksqepyk7/IMG-20250901-WA0049.jpg?rlkey=gjx633gcsjfeyxvgdhwebvp75&dl=1" alt="Our Legal Team Photo" />
+      </div>
+      <p class="max-w-4xl mx-auto leading-relaxed" style="color: #808080;">
+        Meet the dedicated legal professionals who work diligently to provide exceptional legal services and achieve the best results for our clients.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-20 bg-gray-50 fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4" style="color: #808080;">Our Legal Team</h2>
+        <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+        <p class="max-w-3xl mx-auto" style="color: #808080;">
+          Dedicated professionals with extensive expertise across various fields of law.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="advocate-card shadow-md overflow-hidden rounded-lg">
+          <div class="h-64 bg-gray-200 overflow-hidden rounded-t-lg">
+            <img
+              src="https://www.dropbox.com/scl/fi/q99ec53j7nrgv0zjifzso/IMG_20250901_233734.jpg?rlkey=h58ck10wj916qbunjkexpm8ot&dl=1"
+              alt="Aditya Tiwari, senior advocate"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <div class="p-6" style="color: #808080;">
+            <h3 class="text-xl font-semibold mb-2" style="color: #808080;">Aditya Tiwari</h3>
+            <p class="font-medium mb-4" style="color: #C49E3F;">Advocate & Legal Consultant</p>
+            <p class="mb-4" style="color: #808080;">
+              With over 8 years of experience in criminal, civil and corporate law, Aditya brings exceptional expertise and dedication to every case.
+            </p>
+            <p style="color: #808080; margin-bottom: 0.25rem;">
+              <strong>Contact:</strong>
+              <a href="tel:+919415450478" style="color: #C49E3F; text-decoration: none;">9415450478</a>
+            </p>
+            <p style="color: #808080;">
+              <strong>Email:</strong>
+              <a href="mailto:arya3270@gmail.com" style="color: #C49E3F; text-decoration: none;">arya3270@gmail.com</a>
+            </p>
+          </div>
+        </div>
+        <div id="anurag-profile" class="advocate-card shadow-md overflow-hidden rounded-lg">
+          <div class="h-64 bg-gray-200 overflow-hidden rounded-t-lg">
+            <img
+              src="https://www.dropbox.com/scl/fi/n9miep02eqy1jhronf2hd/IMG-20250901-WA0040.jpg?rlkey=dkyy3xjreucx133129op00i2i&dl=1"
+              alt="Anurag Tripathi, corporate lawyer"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6 text-justify" style="color: #808080;">
+            <h3 class="text-xl font-semibold mb-2" style="color: #808080;">Anurag Tripathi</h3>
+            <p class="font-medium mb-4" style="color: #C49E3F;">Advocate & Legal Consultant</p>
+            <p class="mb-4" style="color: #808080;">
+              At the core of Anurag Tripathi's practice is a simple principle--trust through results. As a passionate legal professional, he combines legal expertise with clear communication and a personalized approach to every case. Whether it's resolving disputes, managing compliance, or offering legal advice, Anurag ensures clients feel supported and informed at every step. Beyond law, he values strong public engagement, relationship building, and a forward-thinking approach to problem-solving. With dedication, honesty, and innovation, Anurag is here to guide you through every legal challenge with confidence.
+            </p>
+            <p style="color: #808080; margin-bottom: 0.25rem;">
+              <strong>Contact:</strong>
+              <a href="tel:+919415453861" style="color: #C49E3F; text-decoration: none;">9415453861</a>
+            </p>
+            <p style="color: #808080;">
+              <strong>Email:</strong>
+              <a href="mailto:yogianurag9415@gmail.com" style="color: #C49E3F; text-decoration: none;">yogianurag9415@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-white fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+      <h2 class="text-4xl font-bold mb-4" style="color: #808080;">Our Legal Services</h2>
+      <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+      <p class="max-w-3xl mx-auto mb-16 text-gray-700">
+        Comprehensive legal solutions tailored to meet your specific needs and objectives.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-left max-w-5xl mx-auto">
+        <div class="service-card p-6 rounded-lg shadow-md">
+          <i class="fas fa-balance-scale text-4xl text-yellow-600 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-4 text-gray-900">Civil Litigation</h3>
+          <p class="text-gray-700 text-sm mb-2">
+            Our civil litigation services cover a broad range of disputes including property conflicts, contract enforcement, tort claims, and civil rights protection.
+          </p>
+          <p class="text-gray-700 text-sm mb-2">
+            We provide skilled representation from filing complaints to settlement negotiations and courtroom advocacy to ensure the protection of your rights.
+          </p>
+          <p class="text-gray-700 text-sm">
+            Whether you are an individual or corporate entity, we tailor strategies to achieve effective and efficient resolutions aligned with your best interests.
+          </p>
+        </div>
+        <div class="service-card p-6 rounded-lg shadow-md">
+          <i class="fas fa-gavel text-4xl text-yellow-600 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-4 text-gray-900">Criminal Services</h3>
+          <p class="text-gray-700 text-sm mb-2">
+            We offer comprehensive defense and advisory services for all criminal matters including white-collar crimes, assault, theft, and other offenses.
+          </p>
+          <p class="text-gray-700 text-sm mb-2">
+            Our experienced criminal lawyers advocate vigorously on your behalf to protect your rights and seek the most favorable outcomes.
+          </p>
+          <p class="text-gray-700 text-sm">
+            From bail applications, charge framing, trial proceedings to appeals, our team is committed to providing responsive and strategic legal support.
+          </p>
+        </div>
+        <div class="service-card p-6 rounded-lg shadow-md">
+          <i class="fas fa-building text-4xl text-yellow-600 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-4 text-gray-900">Corporate Services</h3>
+          <p class="text-gray-700 text-sm mb-2">
+            Our corporate legal services span company formation, regulatory compliance, contract drafting and negotiation, mergers and acquisitions, and dispute resolution.
+          </p>
+          <p class="text-gray-700 text-sm mb-2">
+            We help businesses navigate complex legal frameworks ensuring adherence to applicable laws and protecting your commercial interests.
+          </p>
+          <p class="text-gray-700 text-sm">
+            Our advisory services are tailored to support startups, SMEs, and established firms in maintaining legal robustness and fostering sustained growth.
+          </p>
+        </div>
+        <div class="service-card p-6 rounded-lg shadow-md">
+          <i class="fas fa-file-contract text-4xl text-yellow-600 mb-4"></i>
+          <h3 class="text-lg font-semibold mb-4 text-gray-900">Civil Services</h3>
+          <p class="text-gray-700 text-sm mb-2">
+            We provide expert civil law advisory including family law, succession matters, tenancy disputes, and personal rights protection.
+          </p>
+          <p class="text-gray-700 text-sm mb-2">
+            Our team offers mediation, arbitration, and litigation representation to resolve civil disputes efficiently and amicably.
+          </p>
+          <p class="text-gray-700 text-sm">
+            Client-centric guidance and detailed legal consultation enable you to make informed decisions in sensitive personal and property matters.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-white fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+      <h2 class="text-4xl font-bold mb-4" style="color: #808080;">Contact Us</h2>
+      <div class="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+      <p class="max-w-3xl mx-auto mb-8 text-gray-700">
+        For legal consultations or queries, please get in touch using the details below or send us a message.
+      </p>
+      <div class="text-gray-700 max-w-md mx-auto text-left">
+        <p><strong>Address:</strong> Shop No.A1, Dayal Residency Chinhat, Lucknow - 226028</p>
+        <p><strong>Phone:</strong> <a href="tel:+919415450478" style="color: #808080; text-decoration: none;">+91 9415450478</a></p>
+        <p><strong>Email:</strong> <a href="mailto:arya3270@gmail.com" style="color: #808080; text-decoration: none;">arya3270@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="bg-white fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-4xl font-bold mb-4" style="color: #808080;">Our Blog</h2>
+      <div class="w-20 h-1 bg-yellow-400 mb-8"></div>
+      <article class="max-w-4xl mx-auto text-gray-700">
+        <h3 class="text-2xl font-semibold mb-3">The Importance of Legal Representation</h3>
+        <p>Quality legal representation is critical in navigating complex legal matters to ensure justice and fair outcomes. Our team is committed to delivering the best advocacy and advice.</p>
+        <hr class="my-6" />
+        <h3 class="text-2xl font-semibold mb-3">Understanding Corporate Compliance</h3>
+        <p>Corporate compliance sustains business integrity and legal safety. Our experienced corporate lawyers guide clients through compliance requirements effectively.</p>
+        <hr class="my-6" />
+        <h3 class="text-2xl font-semibold mb-3">Civil Litigation: Preparing Your Case</h3>
+        <p>Successful civil litigation requires thorough preparation and expert counsel. We provide strategic advice to protect your rights and achieve the best outcomes.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="bg-gray-50 fade-in">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <h2 class="text-4xl font-bold mb-4" style="color: #808080;">Frequently Asked Questions</h2>
+      <div class="w-20 h-1 bg-yellow-400 mb-8"></div>
+      <div class="max-w-4xl mx-auto text-gray-700">
+        <h3 class="text-xl font-semibold mb-3">What types of cases does Aaditya Law Group handle?</h3>
+        <p>We handle a wide variety of cases including civil, criminal, corporate, constitutional, and commercial law matters.</p>
+        <h3 class="text-xl font-semibold mb-3">How can I schedule a consultation?</h3>
+        <p>You can schedule a consultation by calling us at <a href="tel:+919415450478" style="color: #808080; text-decoration: none;">+91 9415450478</a> or emailing <a href="mailto:arya3270@gmail.com" style="color: #808080; text-decoration: none;">arya3270@gmail.com</a>.</p>
+        <h3 class="text-xl font-semibold mb-3">Do you offer corporate legal advisory?</h3>
+        <p>Yes, we have experienced corporate lawyers providing comprehensive advisory and compliance services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919415450478" class="whatsapp-button" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+</html>
+<style>body {
+  background-color: #F9FAFB;
+  font-family: 'Roboto', 'Poppins', sans-serif;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* NAVIGATION BAR */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  height: 80px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  background-color: rgba(211, 211, 211, 0.75); /* semi-transparent header */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.logo-wrapper {
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #C49E3F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.logo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nav-title-wrapper {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.nav-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: #C49E3F;
+  margin: 0;
+  user-select: none;
+  white-space: nowrap;
+  overflow: visible;
+  letter-spacing: 1px;
+}
+
+/* NAV LINKS + HAMBURGER */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  flex-grow: 0;
+}
+
+.nav-links a {
+  position: relative;
+  color: #333333;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #C49E3F;
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+  color: #C49E3F;
+  outline: none;
+}
+
+.nav-links a:hover::after, .nav-links a:focus::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  color: #C49E3F;
+  font-size: 2rem;
+  padding-left: 1rem;
+  flex-shrink: 0;
+  order: 3;
+  background: transparent;
+  border: none;
+}
+
+/* HERO SECTION - background overlay (make less transparent) */
+.hero-bg {
+  background: linear-gradient(rgba(128, 128, 128, 0.96), rgba(128, 128, 128, 0.96)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0d0b5816-bf28-493f-9073-10d96469d80a.png');
+  background-size: cover;
+  background-position: center;
+  color: #F9FAFB;
+}
+
+/* RESPONSIVE TITLE AND NAVIGATION */
+@media (max-width: 900px) {
+  .nav-title { font-size: 1.3rem; }
+}
+
+@media (max-width: 768px) {
+  .logo-wrapper { order: 1; }
+  .nav-title-wrapper { order: 2; flex-grow: 1; min-width: 0; }
+  .nav-title { font-size: 1rem; }
+  .hamburger { order: 3; margin-left: 0; display: block; background: transparent; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(211,211,211,0.95);
+    position: absolute;
+    right: 0;
+    top: 80px;
+    width: 100%;
+    z-index: 40;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 1rem 2rem; color: #333333; }
+  .nav-links a:hover, .nav-links a:focus {
+    background-color: #f9f7e7;
+    color: #C49E3F;
+  }
+}
+
+/* GENERAL DESIGN */
+.fade-in {
+  animation: fadeIn 1.2s ease-in forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.advocate-card, .service-card {
+  transition: transform 0.3s cubic-bezier(.11,.77,.57,1), box-shadow 0.3s ease;
+  background-color: #E9EDF7;
+  color: #808080;
+  border-radius: 0.75rem;
+}
+
+.advocate-card:hover, .service-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(196, 158, 63, 0.2);
+}
+
+.service-card {
+  background-color: #F3F4F6;
+  color: #808080;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #808080;
+}
+
+a {
+  color: #808080;
+  transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+  color: #C49E3F;
+  outline: none;
+}
+
+section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+#about p, #anurag-profile p {
+  text-align: justify;
+}
+
+.btn-primary {
+  background-color: #808080;
+  color: #F9FAFB;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #C49E3F;
+  color: #808080;
+  outline: none;
+}
+
+.team-photo-container {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(196, 158, 63, 0.3);
+}
+
+.team-photo-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.advocate-card img {
+  object-fit: contain !important;
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-button:hover, .whatsapp-button:focus {
+  background-color: #1ebe57;
+  outline: none;
+}
+
+.whatsapp-button i {
+  color: white;
+  font-size: 30px;
+}
+
+.hero-bg {
+  background: linear-gradient(rgba(128, 128, 128, 0.67), rgba(128, 128, 128, 0.67)),
+              url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0d0b5816-bf28-493f-9073-10d96469d80a.png');
+  background-size: cover;
+  background-position: center;
+  color: #F9FAFB;
+}
+</style>
